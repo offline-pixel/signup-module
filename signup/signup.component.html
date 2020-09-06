@@ -1,0 +1,50 @@
+<div class="content" role="main">
+  <div class="logo">Deepak Ranolia</div>
+  <div class="card highlight-card card-small">
+    <p>Fill the form and register with us today</p>
+    <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
+      <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
+    </svg>
+  </div>
+  <div class="card-container signup">
+    <div class="form">
+      <form [formGroup]="signupForm" (ngSubmit)="register($event)">
+        <div class="group" [ngClass]="{'error':fName}">
+          <p>
+            <label for="first-name">Enter First Name<sup>*</sup></label>
+            <span>{{errorText}}</span>
+          </p>
+          <input type="text" placeholder="Ex. Deepak" formControlName="firstName" autofocus required (focusout)='validation("fName")' />
+        </div>
+        <div class="group" [ngClass]="{'error':lName}">
+          <p>
+            <label for="last-name">Enter Last Name<sup>*</sup></label>
+            <span>{{errorText}}</span>
+          </p>
+          <input type="text" placeholder="Ex. Ranolia" formControlName="lastName" autofocus required (focusout)='validation("lName")' />
+        </div>
+        <div class="group" [ngClass]="{'error':email}">
+          <p>
+            <label for="email">Enter Your Email<sup>*</sup></label>
+            <span>{{errorText}}</span>
+          </p>
+          <input type="email" placeholder="Ex. d.ranolia92@gmail.com" formControlName="email" autofocus required (focusout)='validation("email")' />
+        </div>
+        <div class="group" [ngClass]="{'error':pwd}">
+          <p>
+            <label for="password">Password<sup>*</sup></label>
+            <span>{{errorText}}</span>
+          </p>
+          <input [type]="password" placeholder="******" formControlName="password" autofocus required (focusout)='validation("pwd")' />
+          <div class="eye" (click)=toggle()>
+            <img src="../assets/eye-show.svg" alt="show password eye svg icon" width="20" height="20" *ngIf="!show" />
+            <img src="../assets/eye-hide.svg" alt="hide password eye svg icon" width="20" height="20" *ngIf="show" />
+          </div>
+        </div>
+        <div class="group">
+          <button type="submit" [disabled]="!signupForm.valid || disabled == true">{{buttonText}}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

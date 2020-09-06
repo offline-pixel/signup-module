@@ -1,0 +1,200 @@
+.content {
+    margin-top: 10px;
+    & .card.highlight-card {
+        background-color: transparent;
+        color: inherit;
+        width: 100%;
+        & p {
+            font-weight: 300;
+        }
+    }
+}
+.logo {
+    border: 1px solid #666;
+    padding: 5px 12px;
+    font-size: 18px;
+    color: #666;
+    // text-shadow: 1px 1px 2px #aaa;
+    // box-shadow: 1px 1px 1px #aaa inset;
+    font-weight: 600;
+    margin: 10px;
+}
+.card {
+    margin-bottom: 0;
+    margin-top: 20px;
+    padding-bottom: 0;
+}
+.signup {
+    margin-top: 0;
+    max-width: 100%;
+    & .form {
+        // padding: 25px 0px;
+        & .group {
+            // border: 1px solid #ccc;
+            margin: 10px 0px;
+            padding: 5px 10px;
+            overflow: hidden;
+            background: #f4f4f4;
+            border: 1px solid #e8e8e8;
+            color: #373737;
+            position: relative;
+            & div.eye {
+                position: absolute;
+                right: 11px;
+                bottom: 11px;
+                opacity: 0.7;
+            }
+            & p {
+                & label {
+                    font-weight: 600;
+                    & sup {
+                        font-weight: 100;
+                        color: rgba(255,0,0,0.8);
+                    }
+                }
+                & span {
+                    display: none;
+                    position: absolute;
+                    top: 2px;
+                    right: 2px;
+                    font-size: 11px;
+                }
+            }
+            & input {
+                width: 360px;
+                border: none;
+                background: transparent ;
+                height: 30px;
+                color: #777;
+                padding: 0 10px;
+                outline: none;
+                &:focus {
+                    outline: none;
+                }
+            }
+            &.error {
+                background: rgba(255, 0, 0, 0.15);
+                border-color: rgba(255,0,0,0.5);
+                box-shadow: 0px 1px 1px #fff inset;
+                color: red;
+                & input {
+                    color: #565656;
+                }
+                & p {
+                    & span {
+                        display: inline;
+                    }
+                }
+            }
+            &.success {
+                background: rgba(0, 255, 0, 0.15);
+                border-color: rgba(0,255,0,0.5);
+                box-shadow: 0px 1px 1px #fff inset;
+                color: green;
+                & input {
+                    color: #565656;
+                }
+                & p {
+                    & span {
+                        display: inline;
+                    }
+                }
+            }
+        }
+        & .group:last-child {
+            background: none;
+            border: none;
+            overflow: visible;
+            margin: auto;
+            text-align: center;
+            padding: 0;
+            & button {
+                transition: all 125ms ease-in-out 25ms;
+                // flex-direction: column;
+                width: 60%;
+                margin-top: 4%;
+                padding: 7px 12px;
+                border: 1px solid #ccc;
+                // margin: auto;
+                outline: none;
+                min-width: 120px;
+                height: 44px;
+                cursor: pointer;
+                &:focus, &:visited {
+                    outline: none;
+                }
+                &:hover {
+                    transition: all 125ms ease-in-out 25ms;
+                    background: white;
+                    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+                }
+                &:disabled:hover{
+                    background: inherit;
+                    box-shadow: initial;
+                }
+            }
+        }
+    }
+}
+
+@media ( prefers-color-scheme: dark ) {
+    .logo {
+        border-color:#ccc;
+        color: #ccc;
+    }
+    .signup {
+        & .form {
+            & .group {
+                background: #444;
+                border-color: 1px solid #111;
+                color: #ccc;
+                & p {
+                    & label {
+                        & sup {
+                            color: rgba(255,0,0,0.8);
+                        }
+                    }
+                    // & span {
+                    //     display: none;
+                    //     position: absolute;
+                    //     top: 2px;
+                    //     right: 2px;
+                    //     font-size: 11px;
+                    // }
+                }
+                & input {
+                    color: #ccc;
+                }
+                &.error {
+                    background: rgba(255, 0, 0, 0.15);
+                    border-color: rgba(255,0,0,0.5);
+                    box-shadow: 0px 1px 1px #111 inset;
+                    color: red;
+                    & input {
+                        color: #fff;
+                    }
+                }
+                &.success {
+                    background: rgba(0, 255, 0, 0.15);
+                    border-color: rgba(0,255,0,0.5);
+                    box-shadow: 0px 1px 1px #111 inset;
+                    color: green;
+                    & input {
+                        color: #fff;
+                    }
+                }
+            }
+            & .group:last-child {
+                & button {
+                    border-color: #111;
+                    background: #444;
+                    color: #ccc;
+                    &:hover {
+                        background: #303030;
+                        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+                    }
+                }
+            }
+        }
+    }
+}
